@@ -1,0 +1,2904 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Greatness | العظمة - قوة لا تقهر</title>
+    <style>
+        /* الأساسيات المعدلة */
+        :root {
+            --bg-color: #f8f9fa;
+            --text-color: #2c3e50;
+            --primary-color: #e63946;
+            --secondary-color: #1d3557;
+            --accent-color: #457b9d;
+            --card-bg: #ffffff;
+            --gold-color: #ffd700;
+            --silver-color: #c0c0c0;
+            --bronze-color: #cd7f32;
+        }
+
+        body.dark-mode {
+            --bg-color: #121212;
+            --text-color: #f1f1f1;
+            --primary-color: #ff6b6b;
+            --secondary-color: #0a192f;
+            --accent-color: #64ffda;
+            --card-bg: #1e293b;
+            --gold-color: #ffd700;
+            --silver-color: #c0c0c0;
+            --bronze-color: #cd7f32;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+        }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+            transition: all 0.4s ease;
+            overflow-x: hidden;
+            min-width: 320px;
+        }
+        
+        /* التنقل المحسن */
+        nav {
+            background-color: var(--secondary-color);
+            padding: 0.8rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .logo {
+            color: #fff;
+            font-size: 1.3rem;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-left: 8px;
+            color: var(--primary-color);
+        }
+        
+        .logo:hover {
+            color: var(--primary-color);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 1.2rem;
+            position: relative;
+        }
+        
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            transition: 0.3s;
+            padding: 0.5rem 0;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-links li::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links li:hover::after {
+            width: 100%;
+            left: 0;
+        }
+
+        /* زر الوضع الليلي */
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.1rem;
+            cursor: pointer;
+            margin-right: 0.8rem;
+            transition: transform 0.3s;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+        }
+
+        .theme-toggle:hover {
+            transform: rotate(30deg);
+            background: rgba(255,255,255,0.2);
+        }
+
+        /* زر القائمة للجوال */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.3rem;
+            cursor: pointer;
+            margin-left: 0.8rem;
+        }
+        
+        /* الأقسام العامة المحسنة */
+        .section {
+            padding: 5rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s, transform 0.8s;
+        }
+
+        .section.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 2.5rem;
+            color: var(--secondary-color);
+            position: relative;
+            display: inline-block;
+            right: 50%;
+            transform: translateX(50%);
+            padding: 0 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            right: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(270deg, var(--primary-color), transparent);
+            border-radius: 3px;
+        }
+
+        .section-title span {
+            color: var(--primary-color);
+        }
+        
+        /* الصفحة الرئيسية المحسنة */
+        #home {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('https://i.ibb.co/ksKsGScb/image.jpg') center/cover no-repeat;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+            padding: 0 1rem;
+        }
+
+        #home::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.8) 100%);
+            z-index: 0;
+        }
+        
+        #home h1 {
+            font-size: 2.2rem;
+            margin-bottom: 1.2rem;
+            position: relative;
+            z-index: 1;
+            animation: fadeInDown 1s ease;
+            line-height: 1.3;
+        }
+        
+        #home p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin-bottom: 2.5rem;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1s ease 0.3s forwards;
+            opacity: 0;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.4s;
+            font-weight: bold;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            animation: fadeIn 1s ease 0.6s forwards;
+            opacity: 0;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn i {
+            margin-left: 8px;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(270deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        .btn:hover::before {
+            right: 100%;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            margin-right: 1rem;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: #fff;
+        }
+        
+        /* قسم الأعضاء المحسن */
+        #members .section-title::after {
+            background: linear-gradient(270deg, #ffd700, transparent);
+        }
+
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .member-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .member-card.vip {
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.35);
+            border: 2px solid var(--gold-color);
+        }
+
+        .member-card.vip .member-img-container::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            right: -2px;
+            left: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, var(--gold-color), #F5D033, var(--gold-color));
+            z-index: -1;
+            border-radius: 12px;
+            animation: goldenGlow 3s linear infinite;
+        }
+        
+        .member-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+        }
+        
+        .member-img-container {
+            position: relative;
+            width: 100%;
+            height: 240px;
+            overflow: hidden;
+        }
+
+        .member-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .member-card:hover .member-img {
+            transform: scale(1.1);
+        }
+        
+        .member-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .member-info h3 {
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+        
+        .member-info p {
+            color: var(--text-color);
+            opacity: 0.9;
+            margin-bottom: 1.2rem;
+            font-size: 0.95rem;
+            min-height: 40px;
+        }
+
+        .member-actions {
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        .member-btn {
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            cursor: pointer;
+        }
+
+        .member-btn i {
+            margin-left: 5px;
+        }
+
+        .btn-profile {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-social {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        .vip-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: linear-gradient(45deg, var(--gold-color), #F5D033);
+            color: #000;
+            padding: 0.3rem 0.8rem;
+            border-radius: 18px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+            z-index: 2;
+            animation: pulse 2s infinite;
+            display: flex;
+            align-items: center;
+        }
+
+        .vip-badge i {
+            margin-left: 5px;
+        }
+
+        /* بطاقات الأعضاء الموسعة */
+        .member-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            z-index: 2000;
+            overflow-y: auto;
+            padding: 1rem;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .member-modal.show {
+            display: block;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background: var(--card-bg);
+            border-radius: 12px;
+            max-width: 95%;
+            margin: 1.5rem auto;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+            transform: translateY(20px);
+            transition: transform 0.4s;
+            position: relative;
+        }
+
+        .member-modal.show .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-header {
+            padding: 1.2rem;
+            background: var(--secondary-color);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h3 {
+            font-size: 1.5rem;
+            margin: 0;
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .close-modal:hover {
+            transform: rotate(90deg);
+            color: var(--primary-color);
+        }
+
+        .modal-body {
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+        }
+
+        .modal-img-container {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .modal-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .modal-info {
+            padding: 1.5rem;
+        }
+
+        .member-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .detail-item {
+            margin-bottom: 0.8rem;
+        }
+
+        .detail-item h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.4rem;
+            font-size: 1rem;
+        }
+
+        .detail-item p {
+            color: var(--text-color);
+            font-size: 0.95rem;
+        }
+
+        .member-description {
+            background: rgba(0,0,0,0.05);
+            padding: 1.2rem;
+            border-radius: 8px;
+            margin-top: 1.2rem;
+        }
+
+        .member-description h4 {
+            color: var(--secondary-color);
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.4rem;
+            display: inline-block;
+        }
+
+        .member-description ul {
+            list-style-type: none;
+        }
+
+        .member-description li {
+            padding: 0.4rem 0;
+            position: relative;
+            padding-right: 1.2rem;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .member-description li::before {
+            content: '•';
+            position: absolute;
+            right: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* قسم الذكريات المحسن */
+        #memories .section-title::after {
+            background: linear-gradient(270deg, #457b9d, transparent);
+        }
+
+        .memories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .memory-card {
+            position: relative;
+            height: 250px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.4s;
+            cursor: pointer;
+        }
+        
+        .memory-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s;
+        }
+        
+        .memory-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+        }
+
+        .memory-card:hover img {
+            transform: scale(1.1) rotate(1deg);
+        }
+        
+        .memory-overlay {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 1rem;
+            color: #fff;
+            transform: translateY(100%);
+            transition: transform 0.4s;
+        }
+
+        .memory-card:hover .memory-overlay {
+            transform: translateY(0);
+        }
+
+        .memory-overlay p {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        /* قسم سيرفر الماينكرافت المحسن */
+        #server .section-title::after {
+            background: linear-gradient(270deg, #64ffda, transparent);
+        }
+
+        #server {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            margin-bottom: 3rem;
+        }
+
+        .server-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        .server-info h3 {
+            font-size: 1.7rem;
+            margin-bottom: 1.2rem;
+            color: var(--secondary-color);
+        }
+
+        .server-status {
+            display: flex;
+            align-items: center;
+            margin: 1.2rem 0;
+            font-size: 1.1rem;
+            background: rgba(0,0,0,0.05);
+            padding: 0.7rem 1.2rem;
+            border-radius: 50px;
+        }
+
+        .status-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #4CAF50;
+            margin-right: 8px;
+            animation: pulse 2s infinite;
+        }
+
+        .server-details {
+            background: rgba(0,0,0,0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-top: 1.5rem;
+            width: 100%;
+            max-width: 600px;
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .server-detail {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            align-items: center;
+        }
+
+        .server-detail:last-child {
+            border-bottom: none;
+        }
+
+        .server-detail span:first-child {
+            font-weight: bold;
+            color: var(--secondary-color);
+            font-size: 1rem;
+        }
+
+        .server-detail span:last-child {
+            font-family: 'Courier New', monospace;
+            color: var(--primary-color);
+            background: rgba(0,0,0,0.05);
+            padding: 0.4rem 0.8rem;
+            border-radius: 5px;
+            font-size: 0.95rem;
+        }
+
+        .server-features {
+            margin-top: 2rem;
+            text-align: right;
+            width: 100%;
+            max-width: 700px;
+        }
+
+        .server-features h3 {
+            margin-bottom: 1.2rem;
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .server-features h3::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            right: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--primary-color);
+        }
+
+        .features-list {
+            list-style-type: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 1.2rem;
+        }
+
+        .features-list li {
+            padding: 0.8rem;
+            background: rgba(0,0,0,0.05);
+            border-radius: 8px;
+            position: relative;
+            padding-right: 2.2rem;
+            transition: all 0.3s;
+            border: 1px solid rgba(0,0,0,0.05);
+            text-align: right;
+        }
+
+        .features-list li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-color: var(--primary-color);
+        }
+
+        .features-list li::before {
+            content: '✓';
+            position: absolute;
+            right: 0.8rem;
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* قسم أقوى الأعضاء المحسن بشكل كبير */
+        #power .section-title::after {
+            background: linear-gradient(270deg, #e63946, transparent);
+        }
+
+        .power-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .power-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(270deg, var(--primary-color), var(--accent-color));
+        }
+
+        .power-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .power-title {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            margin: 0;
+        }
+
+        .power-mobile-view {
+            display: none;
+        }
+
+        .power-categories {
+            display: grid;
+            grid-template-columns: 60px 120px repeat(3, 1fr);
+            gap: 0.8rem;
+            margin-bottom: 1rem;
+            padding: 0 0.8rem;
+            align-items: center;
+        }
+
+        .power-category {
+            font-weight: bold;
+            color: var(--secondary-color);
+            text-align: center;
+            font-size: 0.95rem;
+            padding: 0.5rem;
+            background: rgba(0,0,0,0.05);
+            border-radius: 6px;
+        }
+
+        .power-member {
+            display: grid;
+            grid-template-columns: 60px 120px repeat(3, 1fr);
+            gap: 0.8rem;
+            align-items: center;
+            margin-bottom: 0.8rem;
+            padding: 0.8rem;
+            border-radius: 8px;
+            transition: all 0.3s;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .power-member::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 1px;
+            background: rgba(0,0,0,0.1);
+        }
+
+        .power-member:hover {
+            background: rgba(0,0,0,0.05);
+            transform: translateX(-3px);
+        }
+
+        .member-rank {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 0.8rem;
+            font-weight: bold;
+            font-size: 1.1rem;
+            border-radius: 50%;
+            color: white;
+        }
+
+        .rank-1 {
+            background: linear-gradient(135deg, var(--gold-color), #d4af37);
+            box-shadow: 0 3px 12px rgba(212, 175, 55, 0.3);
+        }
+
+        .rank-2 {
+            background: linear-gradient(135deg, var(--silver-color), #a8a8a8);
+            box-shadow: 0 3px 12px rgba(192, 192, 192, 0.3);
+        }
+
+        .rank-3 {
+            background: linear-gradient(135deg, var(--bronze-color), #b87333);
+            box-shadow: 0 3px 12px rgba(205, 127, 50, 0.3);
+        }
+
+        .rank-4-9 {
+            background: var(--secondary-color);
+            color: white;
+        }
+
+        .member-name {
+            font-weight: bold;
+            font-size: 1.1rem;
+            padding: 0.4rem 0;
+        }
+
+        .member-name.red {
+            color: #ff4444;
+        }
+
+        .member-name.gold {
+            color: var(--gold-color);
+        }
+
+        .member-name.yellow {
+            color: #FFD700;
+        }
+
+        .member-name.blue {
+            color: var(--accent-color);
+        }
+
+        .power-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.8rem;
+        }
+
+        .power-stat {
+            text-align: center;
+            padding: 0.4rem;
+        }
+
+        .stat-value {
+            font-weight: bold;
+            font-size: 1rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .power-bar-bg {
+            height: 10px;
+            background-color: rgba(0,0,0,0.1);
+            border-radius: 5px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .power-bar {
+            height: 100%;
+            border-radius: 5px;
+            width: 0;
+            transition: width 1s ease 0.3s;
+            position: relative;
+        }
+
+        .power-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(90deg, 
+                          rgba(255,255,255,0.3), 
+                          transparent);
+        }
+
+        .power-bar.red {
+            background: linear-gradient(90deg, #ff4444, #ff7676);
+        }
+
+        .power-bar.gold {
+            background: linear-gradient(90deg, var(--gold-color), #F5D033);
+        }
+
+        .power-bar.yellow {
+            background: linear-gradient(90deg, #FFD700, #FFEE58);
+        }
+
+        .power-bar.blue {
+            background: linear-gradient(90deg, var(--accent-color), #34A853);
+        }
+
+        /* لوحة الإحصائيات */
+        .stats-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            z-index: 2000;
+            overflow-y: auto;
+            padding: 1rem;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .stats-modal.show {
+            display: block;
+            opacity: 1;
+        }
+
+        .stats-content {
+            background: var(--card-bg);
+            border-radius: 12px;
+            max-width: 95%;
+            margin: 1.5rem auto;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+            transform: translateY(20px);
+            transition: transform 0.4s;
+            position: relative;
+        }
+
+        .stats-modal.show .stats-content {
+            transform: translateY(0);
+        }
+
+        .stats-header {
+            padding: 1.2rem;
+            background: var(--secondary-color);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .stats-header h3 {
+            font-size: 1.5rem;
+            margin: 0;
+        }
+
+        .close-stats {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .close-stats:hover {
+            transform: rotate(90deg);
+            color: var(--primary-color);
+        }
+
+        .stats-body {
+            padding: 1.5rem;
+        }
+
+        .member-stats-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .stats-avatar {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            border: 3px solid var(--primary-color);
+        }
+
+        .stats-name {
+            font-size: 1.7rem;
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .stats-rank {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 18px;
+            font-weight: bold;
+            margin-bottom: 0.8rem;
+        }
+
+        .stats-charts {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .chart-container {
+            background: rgba(0,0,0,0.05);
+            padding: 1.2rem;
+            border-radius: 8px;
+        }
+
+        .chart-title {
+            color: var(--secondary-color);
+            margin-bottom: 1.2rem;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .chart-title i {
+            margin-left: 8px;
+            color: var(--primary-color);
+        }
+
+        .chart {
+            height: 180px;
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-around;
+            padding-top: 1.5rem;
+        }
+
+        .chart-bar {
+            width: 50px;
+            background: var(--primary-color);
+            border-radius: 5px 5px 0 0;
+            position: relative;
+            transition: height 1s ease;
+        }
+
+        .chart-bar::after {
+            content: attr(data-percent)'%';
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-weight: bold;
+            color: var(--text-color);
+            font-size: 0.9rem;
+        }
+
+        .chart-label {
+            position: absolute;
+            bottom: -22px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.85rem;
+            color: var(--text-color);
+        }
+
+        .stats-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.2rem;
+            margin-top: 1.5rem;
+        }
+
+        .stats-detail {
+            background: rgba(0,0,0,0.05);
+            padding: 0.8rem;
+            border-radius: 6px;
+        }
+
+        .stats-detail h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.4rem;
+            font-size: 1rem;
+        }
+
+        .stats-detail p {
+            color: var(--text-color);
+            font-size: 0.9rem;
+        }
+
+        .country-flag {
+            width: 20px;
+            height: 15px;
+            margin-left: 5px;
+            vertical-align: middle;
+            border-radius: 2px;
+        }
+
+        /* قسم الروابط المحسن */
+        #social .section-title::after {
+            background: linear-gradient(270deg, #a8dadc, transparent);
+        }
+
+        .social-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .social-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+            border-color: var(--primary-color);
+        }
+
+        .social-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(270deg, var(--primary-color), var(--accent-color));
+        }
+
+        .social-card i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1.2rem;
+            transition: all 0.3s;
+        }
+
+        .social-card:hover i {
+            transform: scale(1.1) rotate(10deg);
+        }
+
+        .social-card h3 {
+            margin-bottom: 1.2rem;
+            color: var(--secondary-color);
+            font-size: 1.3rem;
+        }
+        
+        .social-card .btn {
+            background-color: var(--secondary-color);
+            color: white;
+            width: 100%;
+            max-width: 200px;
+            margin: 0 auto;
+        }
+        
+        .social-card .btn:hover {
+            background-color: var(--primary-color);
+        }
+
+        /* الفوتر المحسن */
+        footer {
+            background-color: var(--secondary-color);
+            color: #fff;
+            text-align: center;
+            padding: 3rem 1rem;
+            position: relative;
+            margin-top: 3rem;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(270deg, var(--primary-color), var(--accent-color));
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-size: 1.7rem;
+            font-weight: bold;
+            margin-bottom: 1.2rem;
+            display: inline-block;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin: 1.5rem 0;
+            flex-wrap: wrap;
+        }
+
+        .footer-links li {
+            margin: 0 1rem;
+        }
+
+        .footer-links a {
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 1rem;
+            position: relative;
+            padding: 0.5rem 0;
+            display: inline-block;
+        }
+
+        .footer-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-links a:hover::after {
+            width: 100%;
+        }
+
+        .copyright {
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* الأنيميشن المعدلة */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInDown {
+            from { 
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes goldenGlow {
+            0% { box-shadow: 0 0 8px rgba(212, 175, 55, 0.5); }
+            50% { box-shadow: 0 0 15px rgba(212, 175, 55, 0.7); }
+            100% { box-shadow: 0 0 8px rgba(212, 175, 55, 0.5); }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* التجاوب مع الشاشات الصغيرة */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 60px;
+                right: -100%;
+                width: 80%;
+                height: calc(100vh - 60px);
+                background: var(--secondary-color);
+                flex-direction: column;
+                align-items: center;
+                padding: 1.5rem 0;
+                transition: right 0.3s;
+                z-index: 999;
+            }
+            
+            .nav-links.active {
+                right: 0;
+            }
+            
+            .nav-links li {
+                margin: 0.8rem 0;
+            }
+            
+            #home h1 {
+                font-size: 1.8rem;
+            }
+            
+            #home p {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+            }
+            
+            .btn {
+                padding: 0.7rem 1.5rem;
+                font-size: 0.95rem;
+            }
+            
+            .btn-outline {
+                margin-right: 0.5rem;
+            }
+            
+            .section {
+                padding: 4rem 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.7rem;
+            }
+            
+            .members-grid, .memories-grid, .social-links {
+                grid-template-columns: 1fr;
+            }
+
+            .power-member, .power-categories {
+                display: none;
+            }
+
+            .power-mobile-view {
+                display: block;
+            }
+            
+            .power-mobile-member {
+                background: var(--card-bg);
+                border-radius: 10px;
+                padding: 1rem;
+                margin-bottom: 1rem;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            }
+            
+            .power-mobile-header {
+                display: flex;
+                align-items: center;
+                margin-bottom: 0.8rem;
+            }
+            
+            .mobile-rank {
+                width: 30px;
+                height: 30px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+                color: white;
+                font-weight: bold;
+                margin-left: 0.8rem;
+                font-size: 1rem;
+            }
+            
+            .mobile-name {
+                font-weight: bold;
+                font-size: 1.1rem;
+            }
+            
+            .mobile-stats {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 0.5rem;
+            }
+            
+            .mobile-stat {
+                text-align: center;
+            }
+            
+            .mobile-stat-value {
+                font-weight: bold;
+                font-size: 0.95rem;
+                margin-bottom: 0.3rem;
+            }
+            
+            .mobile-bar-bg {
+                height: 8px;
+                background-color: rgba(0,0,0,0.1);
+                border-radius: 4px;
+                overflow: hidden;
+            }
+            
+            .mobile-bar {
+                height: 100%;
+                border-radius: 4px;
+                width: 0;
+                transition: width 1s ease 0.3s;
+            }
+            
+            .member-modal, .stats-modal {
+                padding: 0.5rem;
+            }
+            
+            .modal-content, .stats-content {
+                margin: 1rem auto;
+            }
+            
+            .modal-img-container, .modal-img-container {
+                height: 200px;
+            }
+            
+            .member-details {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .server-details {
+                padding: 1rem;
+            }
+            
+            .server-detail {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .server-detail span:last-child {
+                margin-top: 0.3rem;
+            }
+            
+            .features-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-details {
+                grid-template-columns: 1fr;
+            }
+            
+            .chart {
+                height: 150px;
+            }
+            
+            .chart-bar {
+                width: 40px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #home h1 {
+                font-size: 1.5rem;
+            }
+            
+            .btn {
+                width: 100%;
+                margin-bottom: 0.8rem;
+            }
+            
+            .btn-outline {
+                margin-right: 0;
+            }
+            
+            .member-img-container {
+                height: 200px;
+            }
+            
+            .member-actions {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .member-btn {
+                width: 100%;
+            }
+            
+            .modal-info {
+                padding: 1rem;
+            }
+            
+            .member-details {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-avatar {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .stats-name {
+                font-size: 1.5rem;
+            }
+            
+            .chart-bar {
+                width: 30px;
+            }
+            
+            .chart-bar::after {
+                font-size: 0.8rem;
+                top: -20px;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- شريط التنقل المحسن -->
+    <nav>
+        <div class="nav-container">
+            <a href="#home" class="logo">
+                <i class="fas fa-crown"></i> العظمة
+            </a>
+            <div>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home"><i class="fas fa-home"></i> الرئيسية</a></li>
+                    <li><a href="#members"><i class="fas fa-users"></i> الأعضاء</a></li>
+                    <li><a href="#memories"><i class="fas fa-images"></i> الذكريات</a></li>
+                    <li><a href="#power"><i class="fas fa-trophy"></i> الأقوى</a></li>
+                    <li><a href="#server"><i class="fas fa-server"></i> السيرفر</a></li>
+                    <li><a href="#social"><i class="fas fa-link"></i> الروابط</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- الصفحة الرئيسية المحسنة -->
+    <section id="home">
+        <h1>بعض من العظماء صنعوا ملايين الذكريات</h1>
+        <p>Greatness | العظمة - قوة لا تقهر</p>
+        <div>
+            <a href="#members" class="btn"><i class="fas fa-users"></i> تعرف على الأعضاء</a>
+            <a href="#server" class="btn btn-outline"><i class="fas fa-gamepad"></i> انضم للسيرفر</a>
+        </div>
+    </section>
+
+    <!-- قسم الأعضاء المحسن -->
+    <section id="members" class="section">
+        <h2 class="section-title">نخبة <span>العظمة</span></h2>
+        <div class="members-grid">
+            <!-- عبد الأول -->
+            <div class="member-card vip">
+                <div class="vip-badge">
+                    <i class="fas fa-crown"></i> VIP
+                </div>
+                <div class="member-img-container">
+                    <img src="https://i.ibb.co/CXGTwkx/image.jpg" alt="عبد الأول" class="member-img">
+                </div>
+                <div class="member-info">
+                    <h3>عبد الأول</h3>
+                    <p>روح وقلب العظمة</p>
+                    <div class="member-actions">
+                        <button class="member-btn btn-profile" data-member="abd1">
+                            <i class="fas fa-user"></i> الملف
+                        </button>
+                        <a href="https://www.instagram.com/3av4_?igsh=MXQ3czQ4M2drMW5hMQ==" class="member-btn btn-social" target="_blank">
+                            <i class="fab fa-instagram"></i> 3av4_
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- حسن -->
+            <div class="member-card vip">
+                <div class="vip-badge">
+                    <i class="fas fa-crown"></i> VIP
+                </div>
+                <div class="member-img-container">
+                    <img src="https://i.ibb.co/0VYtcnNs/image.jpg" alt="حسن" class="member-img">
+                </div>
+                <div class="member-info">
+                    <h3>حسن</h3>
+                    <p>رئيس وقائد العظمة</p>
+                    <div class="member-actions">
+                        <button class="member-btn btn-profile" data-member="hasan">
+                            <i class="fas fa-user"></i> الملف
+                        </button>
+                        <a href="https://www.instagram.com/xflay_1?igsh=MXM5NGliOHNpbXNsdQ==" class="member-btn btn-social" target="_blank">
+                            <i class="fab fa-instagram"></i> xflay_1
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- حمدية -->
+            <div class="member-card vip">
+                <div class="vip-badge">
+                    <i class="fas fa-crown"></i> VIP
+                </div>
+                <div class="member-img-container">
+                    <img src="https://i.ibb.co/Y49Xdfjh/image.jpg" alt="حمدية" class="member-img">
+                </div>
+                <div class="member-info">
+                    <h3>حمدية</h3>
+                    <p>المعروف لا يعرف</p>
+                    <div class="member-actions">
+                        <button class="member-btn btn-profile" data-member="hamdiya">
+                            <i class="fas fa-user"></i> الملف
+                        </button>
+                        <a href="https://www.instagram.com/mezaiane.esp?igsh=MWk3c3A2Z2VibXhhNg==" class="member-btn btn-social" target="_blank">
+                            <i class="fab fa-instagram"></i> mezaiane.esp
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- نيرو -->
+            <div class="member-card">
+                <div class="member-img-container">
+                    <img src="https://i.ibb.co/pvQQ1msV/image.jpg" alt="نيرو" class="member-img">
+                </div>
+                <div class="member-info">
+                    <h3>نيرو</h3>
+                    <p>أساس العظمة</p>
+                    <div class="member-actions">
+                        <button class="member-btn btn-profile" data-member="nero">
+                            <i class="fas fa-user"></i> الملف
+                        </button>
+                        <a href="https://www.instagram.com/iiineiro/" class="member-btn btn-social" target="_blank">
+                            <i class="fab fa-instagram"></i> iiineiro
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- تونه -->
+            <div class="member-card">
+                <div class="member-img-container">
+                    <img src="https://i.ibb.co/KpF8PGvf/image.jpg" alt="تونه" class="member-img">
+                </div>
+                <div class="member-info">
+                    <h3>تونه</h3>
+                    <p>العظمة بحد ذاتها</p>
+                    <div class="member-actions">
+                        <button class="member-btn btn-profile" data-member="tuna">
+                            <i class="fas fa-user"></i> الملف
+                        </button>
+                        <a href="https://www.instagram.com/vinery_14?igsh=MTFyaXU5eHdjdjFzNg==" class="member-btn btn-social" target="_blank">
+                            <i class="fab fa-instagram"></i> vinery_14
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- أبو عباس ديباج -->
+            <div class="member-card">
+                <div class="member-img-container">
+                    <img src="https://i.ibb.co/RwQZVN2/image.jpg" alt="أبو عباس ديباج" class="member-img">
+                </div>
+                <div class="member-info">
+                    <h3>أبو عباس ديباج</h3>
+                    <p>المجاهد الأول</p>
+                    <div class="member-actions">
+                        <button class="member-btn btn-profile" data-member="abbas">
+                            <i class="fas fa-user"></i> الملف
+                        </button>
+                        <a href="https://www.instagram.com/82bw2?igsh=ZjJvM2xwNzZjZG0y" class="member-btn btn-social" target="_blank">
+                            <i class="fab fa-instagram"></i> 82bw2
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ياسين -->
+            <div class="member-card">
+                <div class="member-img-container">
+                    <img src="https://i.ibb.co/TBHzSjj0/image.jpg" alt="ياسين" class="member-img">
+                </div>
+                <div class="member-info">
+                    <h3>ياسين</h3>
+                    <p>في كل مكان في العظمة</p>
+                    <div class="member-actions">
+                        <button class="member-btn btn-profile" data-member="yassin">
+                            <i class="fas fa-user"></i> الملف
+                        </button>
+                        <a href="https://www.instagram.com/y656f?igsh=MWNkYXJ2dWo0MzM2Mw==" class="member-btn btn-social" target="_blank">
+                            <i class="fab fa-instagram"></i> y656f
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- عبد الثاني -->
+            <div class="member-card">
+                <div class="member-img-container">
+                    <img src="https://i.ibb.co/60fwHJ4c/image.jpg" alt="عبد الثاني" class="member-img">
+                </div>
+                <div class="member-info">
+                    <h3>عبد الثاني</h3>
+                    <p>نسخة لا تتكرر من العظمة</p>
+                    <div class="member-actions">
+                        <button class="member-btn btn-profile" data-member="abd2">
+                            <i class="fas fa-user"></i> الملف
+                        </button>
+                        <a href="https://www.instagram.com/x_abdoo_19?igsh=dHNlMmt4enRmdDQ=" class="member-btn btn-social" target="_blank">
+                            <i class="fab fa-instagram"></i> x_abdoo_19
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- بطاقات الأعضاء الموسعة -->
+    <div class="member-modal" id="memberModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalMemberName">عبد الأول</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-img-container">
+                    <img src="" alt="" id="modalMemberImg" class="modal-img">
+                </div>
+                <div class="modal-info">
+                    <div class="member-details">
+                        <div class="detail-item">
+                            <h4><i class="fas fa-user-tag"></i> اللقب</h4>
+                            <p id="modalMemberNickname">روح وقلب العظمة</p>
+                        </div>
+                        <div class="detail-item">
+                            <h4><i class="fas fa-birthday-cake"></i> العمر</h4>
+                            <p id="modalMemberAge">18 سنة</p>
+                        </div>
+                        <div class="detail-item">
+                            <h4><i class="fas fa-flag"></i> البلد</h4>
+                            <p id="modalMemberCountry">الجزائر <img src="https://flagcdn.com/w20/dz.png" class="country-flag" alt="الجزائر"></p>
+                        </div>
+                        <div class="detail-item">
+                            <h4><i class="fas fa-star"></i> الرتبة</h4>
+                            <p id="modalMemberRank">VIP</p>
+                        </div>
+                    </div>
+                    <div class="member-description">
+                        <h4><i class="fas fa-info-circle"></i> الوصف</h4>
+                        <ul id="modalMemberDescription">
+                            <!-- سيتم ملؤه بالجافاسكريبت -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- قسم الذكريات المحسن -->
+    <section id="memories" class="section">
+        <h2 class="section-title">ذكريات <span>العظمة</span></h2>
+        <div class="memories-grid">
+            <div class="memory-card">
+                <img src="https://i.ibb.co/F4dF7pWj/image.jpg" alt="سبتمبر 2024" class="memory-img">
+                <div class="memory-overlay">
+                    <p>سبتمبر 2024</p>
+                </div>
+            </div>
+            
+            <div class="memory-card">
+                <img src="https://i.ibb.co/27VqDvXk/image.jpg" alt="سبتمبر 2024" class="memory-img">
+                <div class="memory-overlay">
+                    <p>سبتمبر 2024</p>
+                </div>
+            </div>
+            
+            <div class="memory-card">
+                <img src="https://i.ibb.co/KctVQxCn/image.jpg" alt="نوفمبر 2024" class="memory-img">
+                <div class="memory-overlay">
+                    <p>نوفمبر 2024</p>
+                </div>
+            </div>
+
+            <div class="memory-card">
+                <img src="https://i.ibb.co/hxvr5QrC/image.jpg" alt="ديسمبر 2024" class="memory-img">
+                <div class="memory-overlay">
+                    <p>ديسمبر 2024</p>
+                </div>
+            </div>
+
+            <div class="memory-card">
+                <img src="https://i.ibb.co/yBRc2vCC/image.jpg" alt="أكتوبر 2024" class="memory-img">
+                <div class="memory-overlay">
+                    <p>أكتوبر 2024</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم أقوى الأعضاء المحسن بشكل كبير -->
+    <section id="power" class="section">
+        <h2 class="section-title">أقوى <span>الأعضاء</span></h2>
+        <div class="power-container">
+            <div class="power-header">
+                <h3 class="power-title">ترتيب القوة</h3>
+            </div>
+            
+            <div class="power-categories">
+                <div class="power-category">الترتيب</div>
+                <div class="power-category">العضو</div>
+                <div class="power-category">القوة</div>
+                <div class="power-category">الذكاء</div>
+                <div class="power-category">التأثير</div>
+            </div>
+            
+            <div class="power-member" data-member="hasan">
+                <div class="member-rank rank-1">1</div>
+                <div class="member-name red">حسن</div>
+                <div class="power-stats">
+                    <div class="power-stat">
+                        <div class="stat-value">99%</div>
+                        <div class="power-bar-bg">
+                            <div class="power-bar red" data-percent="99"></div>
+                        </div>
+                    </div>
+                    <div class="power-stat">
+                        <div class="stat-value">88%</div>
+                        <div class="power-bar-bg">
+                            <div class="power-bar blue" data-percent="88"></div>
+                        </div>
+                    </div>
+                    <div class="power-stat">
+                        <div class="stat-value">90%</div>
+                        <div class="power-bar-bg">
+                            <div class="power-bar blue" data-percent="90"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="power-member" data-member="tuna">
+                <div class="member-rank rank-2">2</div>
+                <div class="member-name gold">تونه</div>
+                <div class="power-stats">
+                    <div class="power-stat">
+                        <div class="stat-value">90%</div>
+                        <div class="power-bar-bg">
+                            <div class="power-bar gold" data-percent="90"></div>
+                        </div>
+                    </div>
+                    <div class="power-stat">
+                        <div class="stat-value">80%</div>
+                        <div class="power-bar-bg">
+                            <div class="power-bar blue" data-percent="80"></div>
+                        </div>
+                    </div>
+                    <div class="power-stat">
+                        <div class="stat-value">70%</div>
+                        <div class="power-bar-bg">
+                            <div class="power-bar blue" data-percent="70"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="power-member" data-member="abd1">
+                <div class="member-rank rank-3">3</div>
+                <div class="member-name yellow">عبد الأول</div>
+                <div class="power-stats">
+                    <div class="power-stat">
+                        <div class="stat-value">85%</div>
+                        <div class="power-bar-bg">
+                            <div class="power-bar yellow" data-percent="85"></div>
+                        </div>
+                    </div>
+                    <div class="power-stat">
+                        <div class="stat-value">80%</div>
+                        <div class="power-bar-bg">
+                            <div class="power-bar blue" data-percent="80"></div>
+                        </div>
+                    </div>
+                    <div class="power-stat">
+                        <div class="stat-value">75%</div>
+                        <div class="power-bar-bg">
+                            <div class="power-bar blue" data-percent="75"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="power-member" data-member="hamdiya">
+                <div class="member-rank rank-4-9">4</div>
+                <div class="member-name">حمدية</div>
+                <div class="power-stats">
+                    <div class="power-stat">
+                        <div class="stat-value">84%</div>
+                        <div class="power-bar-bg">
+                            <div class="power-bar blue" data-percent="84"></div>
+                        </div>
+                    </div>
+                    <div class="power-stat">
+                        <div class="stat-value">78%</div>
+                        <div class="power-bar-bg">
+                            <div class="power-bar blue" data-percent="78"></div>
+                        </div>
+                    </div>
+                    <div class="power-stat">
+                        <div class="stat-value">74%</div>
+                        <div class="power-bar-bg">
+                            <div class="power-bar blue" data-percent="74"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="power-member" data-member="nero">
+                <div class="member-rank rank-4-9">5</div>
+                <div class="member-name">نيرو</div>
+                <div class="power-stats">
+                    <div class="power-stat">
+                        <div class="stat-value">50%</div>
+                        <div class="power-bar-bg">
+                            <div class="power-bar blue" data-percent="50"></div>
+                        </div>
+                    </div>
+                    <div class="power-stat">
+                        <div class="stat-value">80%</div>
+                        <div class="power-bar-bg">
+                            <div class="power-bar blue" data-percent="80"></div>
+                        </div>
+                    </div>
+                    <div class="power-stat">
+                        <div class="stat-value">75%</div>
+                        <div class="power-bar-bg">
+                            <div class="power-bar blue" data-percent="75"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="power-member" data-member="yassin">
+                <div class="member-rank rank-4-9">6</div>
+                <div class="member-name">ياسين</div>
+                <div class="power-stats">
+                    <div class="power-stat">
+                        <div class="stat-value">39%</div>
+                        <div class="power-bar-bg">
+                            <div class="power-bar blue" data-percent="39"></div>
+                        </div>
+                    </div>
+                    <div class="power-stat">
+                        <div class="stat-value">60%</div>
+                        <div class="power-bar-bg">
+                            <div class="power-bar blue" data-percent="60"></div>
+                        </div>
+                    </div>
+                    <div class="power-stat">
+                        <div class="stat-value">2%</div>
+                        <div class="power-bar-bg">
+                            <div class="power-bar blue" data-percent="2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="power-member" data-member="abd2">
+                <div class="member-rank rank-4-9">7</div>
+                <div class="member-name">عبد الثاني</div>
+                <div class="power-stats">
+                    <div class="power-stat">
+                        <div class="stat-value">40%</div>
+                        <div class="power-bar-bg">
+                            <div class="power-bar blue" data-percent="40"></div>
+                        </div>
+                    </div>
+                    <div class="power-stat">
+                        <div class="stat-value">79%</div>
+                        <div class="power-bar-bg">
+                            <div class="power-bar blue" data-percent="79"></div>
+                        </div>
+                    </div>
+                    <div class="power-stat">
+                        <div class="stat-value">60%</div>
+                        <div class="power-bar-bg">
+                            <div class="power-bar blue" data-percent="60"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="power-member" data-member="abbas">
+                <div class="member-rank rank-4-9">8</div>
+                <div class="member-name">أبو عباس</div>
+                <div class="power-stats">
+                    <div class="power-stat">
+                        <div class="stat-value">20%</div>
+                        <div class="power-bar-bg">
+                            <div class="power-bar blue" data-percent="20"></div>
+                        </div>
+                    </div>
+                    <div class="power-stat">
+                        <div class="stat-value">80%</div>
+                        <div class="power-bar-bg">
+                            <div class="power-bar blue" data-percent="80"></div>
+                        </div>
+                    </div>
+                    <div class="power-stat">
+                        <div class="stat-value">10%</div>
+                        <div class="power-bar-bg">
+                            <div class="power-bar blue" data-percent="10"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- عرض الجوال -->
+            <div class="power-mobile-view">
+                <div class="power-mobile-member" data-member="hasan">
+                    <div class="power-mobile-header">
+                        <div class="mobile-rank rank-1">1</div>
+                        <div class="mobile-name red">حسن</div>
+                    </div>
+                    <div class="mobile-stats">
+                        <div class="mobile-stat">
+                            <div class="mobile-stat-value">99%</div>
+                            <div class="mobile-bar-bg">
+                                <div class="mobile-bar red" style="width: 99%"></div>
+                            </div>
+                            <div class="mobile-stat-label">القوة</div>
+                        </div>
+                        <div class="mobile-stat">
+                            <div class="mobile-stat-value">88%</div>
+                            <div class="mobile-bar-bg">
+                                <div class="mobile-bar blue" style="width: 88%"></div>
+                            </div>
+                            <div class="mobile-stat-label">الذكاء</div>
+                        </div>
+                        <div class="mobile-stat">
+                            <div class="mobile-stat-value">90%</div>
+                            <div class="mobile-bar-bg">
+                                <div class="mobile-bar blue" style="width: 90%"></div>
+                            </div>
+                            <div class="mobile-stat-label">التأثير</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="power-mobile-member" data-member="tuna">
+                    <div class="power-mobile-header">
+                        <div class="mobile-rank rank-2">2</div>
+                        <div class="mobile-name gold">تونه</div>
+                    </div>
+                    <div class="mobile-stats">
+                        <div class="mobile-stat">
+                            <div class="mobile-stat-value">90%</div>
+                            <div class="mobile-bar-bg">
+                                <div class="mobile-bar gold" style="width: 90%"></div>
+                            </div>
+                            <div class="mobile-stat-label">القوة</div>
+                        </div>
+                        <div class="mobile-stat">
+                            <div class="mobile-stat-value">80%</div>
+                            <div class="mobile-bar-bg">
+                                <div class="mobile-bar blue" style="width: 80%"></div>
+                            </div>
+                            <div class="mobile-stat-label">الذكاء</div>
+                        </div>
+                        <div class="mobile-stat">
+                            <div class="mobile-stat-value">70%</div>
+                            <div class="mobile-bar-bg">
+                                <div class="mobile-bar blue" style="width: 70%"></div>
+                            </div>
+                            <div class="mobile-stat-label">التأثير</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="power-mobile-member" data-member="abd1">
+                    <div class="power-mobile-header">
+                        <div class="mobile-rank rank-3">3</div>
+                        <div class="mobile-name yellow">عبد الأول</div>
+                    </div>
+                    <div class="mobile-stats">
+                        <div class="mobile-stat">
+                            <div class="mobile-stat-value">85%</div>
+                            <div class="mobile-bar-bg">
+                                <div class="mobile-bar yellow" style="width: 85%"></div>
+                            </div>
+                            <div class="mobile-stat-label">القوة</div>
+                        </div>
+                        <div class="mobile-stat">
+                            <div class="mobile-stat-value">80%</div>
+                            <div class="mobile-bar-bg">
+                                <div class="mobile-bar blue" style="width: 80%"></div>
+                            </div>
+                            <div class="mobile-stat-label">الذكاء</div>
+                        </div>
+                        <div class="mobile-stat">
+                            <div class="mobile-stat-value">75%</div>
+                            <div class="mobile-bar-bg">
+                                <div class="mobile-bar blue" style="width: 75%"></div>
+                            </div>
+                            <div class="mobile-stat-label">التأثير</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="power-mobile-member" data-member="hamdiya">
+                    <div class="power-mobile-header">
+                        <div class="mobile-rank rank-4-9">4</div>
+                        <div class="mobile-name">حمدية</div>
+                    </div>
+                    <div class="mobile-stats">
+                        <div class="mobile-stat">
+                            <div class="mobile-stat-value">84%</div>
+                            <div class="mobile-bar-bg">
+                                <div class="mobile-bar blue" style="width: 84%"></div>
+                            </div>
+                            <div class="mobile-stat-label">القوة</div>
+                        </div>
+                        <div class="mobile-stat">
+                            <div class="mobile-stat-value">78%</div>
+                            <div class="mobile-bar-bg">
+                                <div class="mobile-bar blue" style="width: 78%"></div>
+                            </div>
+                            <div class="mobile-stat-label">الذكاء</div>
+                        </div>
+                        <div class="mobile-stat">
+                            <div class="mobile-stat-value">74%</div>
+                            <div class="mobile-bar-bg">
+                                <div class="mobile-bar blue" style="width: 74%"></div>
+                            </div>
+                            <div class="mobile-stat-label">التأثير</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="power-mobile-member" data-member="nero">
+                    <div class="power-mobile-header">
+                        <div class="mobile-rank rank-4-9">5</div>
+                        <div class="mobile-name">نيرو</div>
+                    </div>
+                    <div class="mobile-stats">
+                        <div class="mobile-stat">
+                            <div class="mobile-stat-value">50%</div>
+                            <div class="mobile-bar-bg">
+                                <div class="mobile-bar blue" style="width: 50%"></div>
+                            </div>
+                            <div class="mobile-stat-label">القوة</div>
+                        </div>
+                        <div class="mobile-stat">
+                            <div class="mobile-stat-value">80%</div>
+                            <div class="mobile-bar-bg">
+                                <div class="mobile-bar blue" style="width: 80%"></div>
+                            </div>
+                            <div class="mobile-stat-label">الذكاء</div>
+                        </div>
+                        <div class="mobile-stat">
+                            <div class="mobile-stat-value">75%</div>
+                            <div class="mobile-bar-bg">
+                                <div class="mobile-bar blue" style="width: 75%"></div>
+                            </div>
+                            <div class="mobile-stat-label">التأثير</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="power-mobile-member" data-member="yassin">
+                    <div class="power-mobile-header">
+                        <div class="mobile-rank rank-4-9">6</div>
+                        <div class="mobile-name">ياسين</div>
+                    </div>
+                    <div class="mobile-stats">
+                        <div class="mobile-stat">
+                            <div class="mobile-stat-value">39%</div>
+                            <div class="mobile-bar-bg">
+                                <div class="mobile-bar blue" style="width: 39%"></div>
+                            </div>
+                            <div class="mobile-stat-label">القوة</div>
+                        </div>
+                        <div class="mobile-stat">
+                            <div class="mobile-stat-value">79%</div>
+                            <div class="mobile-bar-bg">
+                                <div class="mobile-bar blue" style="width: 79%"></div>
+                            </div>
+                            <div class="mobile-stat-label">الذكاء</div>
+                        </div>
+                        <div class="mobile-stat">
+                            <div class="mobile-stat-value">2%</div>
+                            <div class="mobile-bar-bg">
+                                <div class="mobile-bar blue" style="width: 2%"></div>
+                            </div>
+                            <div class="mobile-stat-label">التأثير</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="power-mobile-member" data-member="abd2">
+                    <div class="power-mobile-header">
+                        <div class="mobile-rank rank-4-9">7</div>
+                        <div class="mobile-name">عبد الثاني</div>
+                    </div>
+                    <div class="mobile-stats">
+                        <div class="mobile-stat">
+                            <div class="mobile-stat-value">40%</div>
+                            <div class="mobile-bar-bg">
+                                <div class="mobile-bar blue" style="width: 40%"></div>
+                            </div>
+                            <div class="mobile-stat-label">القوة</div>
+                        </div>
+                        <div class="mobile-stat">
+                            <div class="mobile-stat-value">79%</div>
+                            <div class="mobile-bar-bg">
+                                <div class="mobile-bar blue" style="width: 79%"></div>
+                            </div>
+                            <div class="mobile-stat-label">الذكاء</div>
+                        </div>
+                        <div class="mobile-stat">
+                            <div class="mobile-stat-value">60%</div>
+                            <div class="mobile-bar-bg">
+                                <div class="mobile-bar blue" style="width: 60%"></div>
+                            </div>
+                            <div class="mobile-stat-label">التأثير</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="power-mobile-member" data-member="abbas">
+                    <div class="power-mobile-header">
+                        <div class="mobile-rank rank-4-9">8</div>
+                        <div class="mobile-name">أبو عباس</div>
+                    </div>
+                    <div class="mobile-stats">
+                        <div class="mobile-stat">
+                            <div class="mobile-stat-value">20%</div>
+                            <div class="mobile-bar-bg">
+                                <div class="mobile-bar blue" style="width: 20%"></div>
+                            </div>
+                            <div class="mobile-stat-label">القوة</div>
+                        </div>
+                        <div class="mobile-stat">
+                            <div class="mobile-stat-value">80%</div>
+                            <div class="mobile-bar-bg">
+                                <div class="mobile-bar blue" style="width: 80%"></div>
+                            </div>
+                            <div class="mobile-stat-label">الذكاء</div>
+                        </div>
+                        <div class="mobile-stat">
+                            <div class="mobile-stat-value">10%</div>
+                            <div class="mobile-bar-bg">
+                                <div class="mobile-bar blue" style="width: 10%"></div>
+                            </div>
+                            <div class="mobile-stat-label">التأثير</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- لوحة إحصائيات الأعضاء -->
+    <div class="stats-modal" id="statsModal">
+        <div class="stats-content">
+            <div class="stats-header">
+                <h3 id="statsMemberName">إحصائيات العضو</h3>
+                <button class="close-stats">&times;</button>
+            </div>
+            <div class="stats-body">
+                <div class="member-stats-header">
+                    <img src="" alt="" id="statsMemberImg" class="stats-avatar">
+                    <div>
+                        <h3 class="stats-name" id="statsMemberFullName">حسن</h3>
+                        <span class="stats-rank" id="statsMemberRank">المركز الأول</span>
+                    </div>
+                </div>
+                
+                <div class="stats-charts">
+                    <div class="chart-container">
+                        <h4 class="chart-title"><i class="fas fa-chart-line"></i> تصنيف القوة</h4>
+                        <div class="chart">
+                            <div class="chart-bar" style="height: 0%" data-percent="99" id="powerChart"></div>
+                            <div class="chart-bar" style="height: 0%" data-percent="88" id="intelChart"></div>
+                            <div class="chart-bar" style="height: 0%" data-percent="90" id="impactChart"></div>
+                            <div class="chart-label">القوة</div>
+                            <div class="chart-label">الذكاء</div>
+                            <div class="chart-label">التأثير</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="stats-details">
+                    <div class="stats-detail">
+                        <h4><i class="fas fa-trophy"></i> الإنجازات</h4>
+                        <p id="statsMemberAchievements">قائد المجموعة، أقوى لاعب، صاحب أعلى تأثير</p>
+                    </div>
+                    <div class="stats-detail">
+                        <h4><i class="fas fa-star"></i> المميزات</h4>
+                        <p id="statsMemberFeatures">قيادي، شجاع، يساعد الجميع، لا يخاف التحديات</p>
+                    </div>
+                    <div class="stats-detail">
+                        <h4><i class="fas fa-globe"></i> الدولة</h4>
+                        <p id="statsMemberCountry">لبنان <img src="https://flagcdn.com/w20/lb.png" class="country-flag" alt="لبنان"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- قسم سيرفر الماينكرافت المحسن -->
+    <section id="server" class="section">
+        <h2 class="section-title">سيرفر <span>ماينكرافت</span></h2>
+        <div class="server-info">
+            <h3>عالم العظمة الخيالي المظلم</h3>
+            <div class="server-status">
+                <span>الحالة: متصل</span>
+                <div class="status-dot"></div>
+            </div>
+            
+            <div class="server-details">
+                <div class="server-detail">
+                    <span>IP:</span>
+                    <span>Greatnesslesbian.aternos.me</span>
+                </div>
+                <div class="server-detail">
+                    <span>Port:</span>
+                    <span>62916</span>
+                </div>
+                <div class="server-detail">
+                    <span>النوع:</span>
+                    <span>Dark Fantasy</span>
+                </div>
+                <div class="server-detail">
+                    <span>النسخة:</span>
+                    <span>1.20.51</span>
+                </div>
+            </div>
+            
+            <div class="server-features">
+                <h3>مميزات السيرفر:</h3>
+                <ul class="features-list">
+                    <li>تنانين قوية ومختلفة</li>
+                    <li>أدوات وأسلحة متطورة</li>
+                    <li>موارد وأحجار نادرة</li>
+                    <li>استكشاف وسحر</li>
+                    <li>دنجنات وكهوف جديدة</li>
+                    <li>ما فيه متعة ما فيه عبد</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الروابط المحسن -->
+    <section id="social" class="section">
+        <h2 class="section-title">روابط <span>العظمة</span></h2>
+        <div class="social-links">
+            <div class="social-card">
+                <i class="fab fa-instagram"></i>
+                <h3>ريلز العظمة</h3>
+                <a href="https://www.instagram.com/39_fft?igsh=czh2MWQ0M3FjYTFp" class="btn" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> تابعنا</a>
+            </div>
+            
+            <div class="social-card">
+                <i class="fab fa-youtube"></i>
+                <h3>يوتيوب العظمة</h3>
+                <a href="https://youtube.com/@3av4?si=D2_uT4ascH_OujrQ" class="btn" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> اشترك الآن</a>
+            </div>
+            
+            <div class="social-card">
+                <i class="fas fa-newspaper"></i>
+                <h3>نشرة الأخبار</h3>
+                <a href="https://greatnessx.blogspot.com/2025/04/blog-post_13.html" class="btn" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> اقرأ المزيد</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- الفوتر المحسن -->
+    <footer>
+        <div class="footer-content">
+            <a href="#home" class="footer-logo">
+                <i class="fas fa-crown"></i> العظمة
+            </a>
+            <p>بعض من العظماء صنعوا ملايين الذكريات</p>
+            
+            <ul class="footer-links">
+                <li><a href="#home"><i class="fas fa-home"></i> الرئيسية</a></li>
+                <li><a href="#members"><i class="fas fa-users"></i> الأعضاء</a></li>
+                <li><a href="#memories"><i class="fas fa-images"></i> الذكريات</a></li>
+                <li><a href="#power"><i class="fas fa-trophy"></i> الأقوى</a></li>
+                <li><a href="#server"><i class="fas fa-server"></i> السيرفر</a></li>
+                <li><a href="#social"><i class="fas fa-link"></i> الروابط</a></li>
+            </ul>
+            
+            <p class="copyright">2025© جميع الحقوق محفوظة | تم التصميم والتطوير بواسطة عبد الأول</p>
+        </div>
+    </footer>
+
+    <script>
+        // بيانات الأعضاء
+        const membersData = {
+            abd1: {
+                name: "عبد الأول",
+                nickname: "روح وقلب العظمة",
+                age: "18 سنة",
+                country: "الجزائر",
+                flag: "dz",
+                rank: "VIP",
+                img: "https://i.ibb.co/CXGTwkx/image.jpg",
+                description: [
+                    "لاعب Minecraft قديم وقوي ويحب PvP والبناء",
+                    "يحب البساطة والهدوء والسلام ويصنع الجو الذي يريده",
+                    "يحب تقديم النصائح ومساعدة الآخرين ويميل للماضي والذكريات",
+                    "يقدس علاقاته مع من يحبهم ومتوازن ويحب المنافسة",
+                    "صاحب حساب ريلز ويوتيوب وموقع العظمة"
+                ],
+                stats: {
+                    power: 85,
+                    intelligence: 80,
+                    impact: 75,
+                    achievements: "مؤسس ريلز العظمة، صاحب أعلى متابعة، الأكثر تأثيراً",
+                    features: "هادئ، متوازن، يحب المساعدة، مبدع في البناء"
+                }
+            },
+            hasan: {
+                name: "حسن",
+                nickname: "رئيس وقائد العظمة",
+                age: "16 سنة",
+                country: "لبنان",
+                flag: "lb",
+                rank: "VIP",
+                img: "https://i.ibb.co/0VYtcnNs/image.jpg",
+                description: [
+                    "صاحب ومدير لقروب وسيرفر ديسكورد العظمة",
+                    "لاعب قوي في ماينكرافت وأقوى في القروب ولا يخاف المواجهات",
+                    "صاحب للجميع ويساعد الكل ويحب التحدي ويكره الخيانة",
+                    "يلعب Fortnite ويحب الأفلام وأي شيء يخص أجهزة الكمبيوتر",
+                    "شخصية قيادية ويحب السلام ويحب صنع الذكريات"
+                ],
+                stats: {
+                    power: 99,
+                    intelligence: 88,
+                    impact: 90,
+                    achievements: "قائد المجموعة، أقوى لاعب، صاحب أعلى تأثير",
+                    features: "قيادي، شجاع، يساعد الجميع، لا يخاف التحديات"
+                }
+            },
+            hamdiya: {
+                name: "حمدية",
+                nickname: "المعروف لا يعرف",
+                age: "25 سنة",
+                country: "الجزائر",
+                flag: "dz",
+                rank: "VIP",
+                img: "https://i.ibb.co/Y49Xdfjh/image.jpg",
+                description: [
+                    "لاعب قديم في لعبة Minecraft ومحترف وقوي",
+                    "شخصية متوازنة لا تأخذ كلام أحد بجدية",
+                    "يحب المزاح ومعروف بين الأعضاء ومتفاعل",
+                    "أخ قبل أن يكون صديقًا ويفزع لأي أحد يحتاج مساعدة",
+                    "يهتم بكرة القدم ويحب شخصية جيك من وقت المغامرة"
+                ],
+                stats: {
+                    power: 84,
+                    intelligence: 78,
+                    impact: 74,
+                    achievements: "أقدم عضو، الخبير التقني، المساعد الأول",
+                    features: "هادئ، حكيم، لا يغضب بسهولة، يحل المشاكل"
+                }
+            },
+            nero: {
+                name: "نيرو",
+                nickname: "أساس العظمة",
+                age: "18 سنة",
+                country: "العراق مقيم بالمغرب",
+                flag: "iq",
+                rank: "عضو أساسي",
+                img: "https://i.ibb.co/pvQQ1msV/image.jpg",
+                description: [
+                    "لاعب قديم وعريق في لعبة Minecraft ومبدع",
+                    "من مؤسسي وقدماء القروب ومعروف ومحبوب",
+                    "يحب مجال الراب والأغاني وشغوف وعاطفي",
+                    "عنده شخصية عميقة وذكي وتأثيره قوي",
+                    "شخص طيب مع الجميع ولا ينسى الحقد والمشاكل"
+                ],
+                stats: {
+                    power: 50,
+                    intelligence: 80,
+                    impact: 75,
+                    achievements: "من المؤسسين، الأكثر إبداعًا، خبير البناء",
+                    features: "مبدع، عاطفي، يحب الفن، عميق التفكير"
+                }
+            },
+            tuna: {
+                name: "تونه",
+                nickname: "العظمة بحد ذاتها",
+                age: "17 سنة",
+                country: "الجزائر / سطيف",
+                flag: "dz",
+                rank: "عضو مميز",
+                img: "https://i.ibb.co/KpF8PGvf/image.jpg",
+                description: [
+                    "لاعب Minecraft (Java/Bedrock) من 8 سنين ويحب PvP وFIFA",
+                    "شخصيته ISFP حساس ويحب الجو الذي يناسبه",
+                    "ذوقه في الموسيقى: TV Girl, Tame Impala, Nirvana",
+                    "يعاني من تقلب المزاج وسواس وعصبية ويحب الهدوء والوحدة",
+                    "يكره حظه ويحقد أحيانًا ويشجع ميلان"
+                ],
+                stats: {
+                    power: 90,
+                    intelligence: 80,
+                    impact: 70,
+                    achievements: "أقوى لاعب PvP، محترف الفيفا، الأكثر تحديًا",
+                    features: "عنيد، لا يستسلم، يحب التحديات، سريع الغضب"
+                }
+            },
+            abbas: {
+                name: "أبو عباس ديباج",
+                nickname: "المجاهد الأول",
+                age: "19 سنة",
+                country: "العراق",
+                flag: "iq",
+                rank: "عضو مميز",
+                img: "https://i.ibb.co/RwQZVN2/image.jpg",
+                description: [
+                    "يقدم نفسه كمرجع ديني وسياسي ومتحدث باسم المجاهدين",
+                    "يمتلك حضور قوي وتأثير وقيادة داخل القروب",
+                    "الشيعي الوحيد في القروب وصاحب مقالة العظمة والأخبار",
+                    "مصمم ممتاز ولاعب Minecraft",
+                    "شخصية متقبلة وليست سهلة وعنده أفكار ومشاريع استثنائية"
+                ],
+                stats: {
+                    power: 20,
+                    intelligence: 80,
+                    impact: 10,
+                    achievements: "المحرر الرسمي، المسؤول الإعلامي، الخبير السياسي",
+                    features: "متعلم جيد، يحب النقاش، قوي الحجة، مثقف"
+                }
+            },
+            yassin: {
+                name: "ياسين",
+                nickname: "الوجوه everywhere",
+                age: "14 سنة",
+                country: "الجزائر",
+                flag: "dz",
+                rank: "عضو نشيط",
+                img: "https://i.ibb.co/TBHzSjj0/image.jpg",
+                description: [
+                    "لاعب Minecraft من 2018 ويحب البناء والسيرفايفل",
+                    "يلعب SAMP وGTA San Andreas ولا يحب حمدية",
+                    "في الفترة الأخيرة يسعى ليرتفع في المكانة ولا يحب الفوضى والعشوائية",
+                    "يساعد ويظهر لكن في وقت التحديات وشخصيته هادئة",
+                    "يعمل على مشروع لعبة العظمة، مهووس بالتفاصيل"
+                ],
+                stats: {
+                    power: 39,
+                    intelligence: 79,
+                    impact: 2,
+                    achievements: "مطور اللعبة، خبير التفاصيل، الأصغر سنًا",
+                    features: "دقيق، مهووس بالتفاصيل، يحب البرمجة، هادئ"
+                }
+            },
+            abd2: {
+                name: "عبد الثاني",
+                nickname: "نسخة لا تتكرر من العظمة",
+                age: "17 سنة",
+                country: "الجزائر",
+                flag: "dz",
+                rank: "عضو جديد",
+                img: "https://i.ibb.co/60fwHJ4c/image.jpg",
+                description: [
+                    "عضو جديد نسبيًا ويحاول أن يثبت نفسه ويبني له مكانة في القروب",
+                    "يلعب Minecraft وألعاب أخرى",
+                    "يعتبر عبد الأول معلمه وأخيه وقدوته",
+                    "يحب السلام ومتبني شخصية عظيمة",
+                    "يصنع معنا ذكريات ويجعل له اسمًا بيننا"
+                ],
+                stats: {
+                    power: 40,
+                    intelligence: 79,
+                    impact: 60,
+                    achievements: "الأسرع تطورًا، الأكثر طموحًا، المقلد الأفضل",
+                    features: "طموح، سريع التعلم، يحب التقليد، مجتهد"
+                }
+            }
+        };
+
+        // تنعيم التمرير للروابط
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // زر الوضع الليلي
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+
+        // تحقق من الوضع المحفوظ
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            body.classList.add('dark-mode');
+            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        }
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('darkMode', 'enabled');
+                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+            } else {
+                localStorage.removeItem('darkMode');
+                themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+            }
+        });
+
+        // زر القائمة للجوال
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // إغلاق القائمة عند النقر على رابط
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // ملء أشرطة القوة عند التمرير
+        const powerBars = document.querySelectorAll('.power-bar');
+        const mobileBars = document.querySelectorAll('.mobile-bar');
+        
+        function animateBars() {
+            powerBars.forEach(bar => {
+                const percent = bar.getAttribute('data-percent');
+                bar.style.width = percent + '%';
+            });
+            
+            mobileBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 100);
+            });
+        }
+
+        // ظهور الأقسام عند التمرير
+        const sections = document.querySelectorAll('.section');
+        
+        function checkSections() {
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (sectionTop < windowHeight - 100) {
+                    section.classList.add('show');
+                    
+                    if (section.id === 'power') {
+                        animateBars();
+                    }
+                }
+            });
+        }
+
+        // تشغيل عند التحميل وعند التمرير
+        window.addEventListener('load', checkSections);
+        window.addEventListener('scroll', checkSections);
+
+        // فتح وإغلاق بطاقات الأعضاء الموسعة
+        const memberModal = document.getElementById('memberModal');
+        const closeModal = document.querySelector('.close-modal');
+        const modalMemberName = document.getElementById('modalMemberName');
+        const modalMemberNickname = document.getElementById('modalMemberNickname');
+        const modalMemberAge = document.getElementById('modalMemberAge');
+        const modalMemberCountry = document.getElementById('modalMemberCountry');
+        const modalMemberRank = document.getElementById('modalMemberRank');
+        const modalMemberImg = document.getElementById('modalMemberImg');
+        const modalMemberDescription = document.getElementById('modalMemberDescription');
+
+        document.querySelectorAll('.btn-profile').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const memberId = this.getAttribute('data-member');
+                const member = membersData[memberId];
+                
+                modalMemberName.textContent = member.name;
+                modalMemberNickname.textContent = member.nickname;
+                modalMemberAge.textContent = member.age;
+                modalMemberCountry.innerHTML = member.country + ` <img src="https://flagcdn.com/w20/${member.flag}.png" class="country-flag" alt="${member.country}">`;
+                modalMemberRank.textContent = member.rank;
+                modalMemberImg.src = member.img;
+                modalMemberImg.alt = member.name;
+                
+                // تفريغ الوصف القديم
+                modalMemberDescription.innerHTML = '';
+                
+                // إضافة الوصف الجديد
+                member.description.forEach(item => {
+                    const li = document.createElement('li');
+                    li.textContent = item;
+                    modalMemberDescription.appendChild(li);
+                });
+                
+                memberModal.classList.add('show');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        closeModal.addEventListener('click', () => {
+            memberModal.classList.remove('show');
+            document.body.style.overflow = 'auto';
+        });
+
+        // إغلاق النافذة عند النقر خارجها
+        window.addEventListener('click', (e) => {
+            if (e.target === memberModal) {
+                memberModal.classList.remove('show');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // فتح وإغلاق لوحة إحصائيات الأعضاء
+        const statsModal = document.getElementById('statsModal');
+        const closeStats = document.querySelector('.close-stats');
+        const statsMemberName = document.getElementById('statsMemberName');
+        const statsMemberFullName = document.getElementById('statsMemberFullName');
+        const statsMemberImg = document.getElementById('statsMemberImg');
+        const statsMemberRank = document.getElementById('statsMemberRank');
+        const statsMemberAchievements = document.getElementById('statsMemberAchievements');
+        const statsMemberFeatures = document.getElementById('statsMemberFeatures');
+        const statsMemberCountry = document.getElementById('statsMemberCountry');
+        const powerChart = document.getElementById('powerChart');
+        const intelChart = document.getElementById('intelChart');
+        const impactChart = document.getElementById('impactChart');
+
+        document.querySelectorAll('.power-member, .power-mobile-member').forEach(member => {
+            member.addEventListener('click', function() {
+                const memberId = this.getAttribute('data-member');
+                const member = membersData[memberId];
+                const rank = this.querySelector('.member-rank') ? this.querySelector('.member-rank').textContent : 
+                            this.querySelector('.mobile-rank').textContent;
+                
+                statsMemberName.textContent = `إحصائيات ${member.name}`;
+                statsMemberFullName.textContent = member.name;
+                statsMemberImg.src = member.img;
+                statsMemberImg.alt = member.name;
+                statsMemberRank.textContent = `المركز ${rank}`;
+                statsMemberAchievements.textContent = member.stats.achievements;
+                statsMemberFeatures.textContent = member.stats.features;
+                statsMemberCountry.innerHTML = member.country + ` <img src="https://flagcdn.com/w20/${member.flag}.png" class="country-flag" alt="${member.country}">`;
+                
+                // تحديد لون الرتبة
+                if (rank === '1') {
+                    statsMemberRank.style.background = 'linear-gradient(135deg, var(--gold-color), #d4af37)';
+                } else if (rank === '2') {
+                    statsMemberRank.style.background = 'linear-gradient(135deg, var(--silver-color), #a8a8a8)';
+                } else if (rank === '3') {
+                    statsMemberRank.style.background = 'linear-gradient(135deg, var(--bronze-color), #b87333)';
+                } else {
+                    statsMemberRank.style.background = 'var(--secondary-color)';
+                }
+                
+                // إعادة تعيين الرسوم البيانية
+                powerChart.style.height = '0%';
+                intelChart.style.height = '0%';
+                impactChart.style.height = '0%';
+                
+                // تأخير لضمان عمل الانتقال
+                setTimeout(() => {
+                    powerChart.style.height = member.stats.power + '%';
+                    intelChart.style.height = member.stats.intelligence + '%';
+                    impactChart.style.height = member.stats.impact + '%';
+                    
+                    powerChart.setAttribute('data-percent', member.stats.power);
+                    intelChart.setAttribute('data-percent', member.stats.intelligence);
+                    impactChart.setAttribute('data-percent', member.stats.impact);
+                }, 50);
+                
+                statsModal.classList.add('show');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        closeStats.addEventListener('click', () => {
+            statsModal.classList.remove('show');
+            document.body.style.overflow = 'auto';
+        });
+
+        // إغلاق النافذة عند النقر خارجها
+        window.addEventListener('click', (e) => {
+            if (e.target === statsModal) {
+                statsModal.classList.remove('show');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
+</body>
+</html>
